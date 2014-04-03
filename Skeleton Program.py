@@ -136,10 +136,10 @@ def GetPlayerName():
 
 def GetChoiceFromUser():
   Choice = input('Do you think the next card will be higher than the last card (enter Y or N)? ')
-  Choice = Choice.lower()
-  if Choice == 'yes':
+  Choice = Choice.capitalize()
+  if Choice == 'Yes' or Choice == 'Y':
     Choice = 'y'
-  elif Choice == 'no':
+  elif Choice == 'No' or Choice =='N':
     Choice = 'n' 
   return Choice
 
