@@ -21,4 +21,7 @@
 		OUTPUT ""
 		RETURN PlayerName
 	END FUNCTION
+
+##3b
+1. The function responsible for adding scores to the table is the UpdateRecentScores function
 	
