@@ -79,9 +79,8 @@ def DisplayMenu():
 
 def GetMenuChoice():
   Choice = input()
+  Choice = Choice[0]
   Choice = Choice.lower()
-  if Choice == 'quit':
-    Choice = 'q'
   print()
   return Choice
 
@@ -183,6 +182,9 @@ def DisplayRecentScores(RecentScores):
   print()
 
 def UpdateRecentScores(RecentScores, Score):
+  YN = input("Do you want to add your score to the high score table (y or n): ")
+ 
+  FoundSpace = False
   PlayerName = GetPlayerName()
   FoundSpace = False
   Count = 1
