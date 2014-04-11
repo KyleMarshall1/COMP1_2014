@@ -133,7 +133,13 @@ def IsNextCardHigher(LastCard, NextCard):
 
 def GetPlayerName():
   print()
-  PlayerName = input('Please enter your name: ')
+  ValidName = False
+  while not ValidName:
+    PlayerName = input('Please enter your name: ')
+    if PlayerName == '':
+      print('You must enter something for your name!')
+    else:
+      ValidName = True
   print()
   return PlayerName
 
@@ -189,9 +195,9 @@ def UpdateRecentScores(RecentScores, Score):
     for Count in range(1, NO_OF_RECENT_SCORES):
       RecentScores[Count].Name = RecentScores[Count + 1].Name
       RecentScores[Count].Score = RecentScores[Count + 1].Score
-    Count = NO_OF_RECENT_SCORES
-  RecentScores[Count].Name = PlayerName
-  RecentScores[Count].Score = Score
+      Count = NO_OF_RECENT_SCORES
+    RecentScores[Count].Name = PlayerName
+    RecentScores[Count].Score = Score
 
 def PlayGame(Deck, RecentScores):
   LastCard = TCard()
