@@ -79,9 +79,8 @@ def DisplayMenu():
 
 def GetMenuChoice():
   Choice = input()
+  Choice = Choice[0]
   Choice = Choice.lower()
-  if Choice == 'quit':
-    Choice = 'q'
   print()
   return Choice
 
@@ -183,9 +182,13 @@ def DisplayRecentScores(RecentScores):
   print()
 
 def UpdateRecentScores(RecentScores, Score):
-  PlayerName = GetPlayerName()
-  FoundSpace = False
-  Count = 1
+  YN = input("Do you want to add your score to the high score table (y or n): ")
+  if YN == 'n':
+    print()
+  else:
+    PlayerName = GetPlayerName()
+    FoundSpace = False
+    Count = 1
   while (not FoundSpace) and (Count <= NO_OF_RECENT_SCORES):
     if RecentScores[Count].Name == '':
       FoundSpace = True
@@ -198,6 +201,10 @@ def UpdateRecentScores(RecentScores, Score):
       Count = NO_OF_RECENT_SCORES
     RecentScores[Count].Name = PlayerName
     RecentScores[Count].Score = Score
+    Count = NO_OF_RECENT_SCORES
+  RecentScores[Count].Name = PlayerName
+  RecentScores[Count].Score = Score
+  return YN
 
 def PlayGame(Deck, RecentScores):
   LastCard = TCard()
