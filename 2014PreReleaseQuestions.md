@@ -29,5 +29,10 @@
 
 ##3b
 1. The function responsible for adding scores to the table is the UpdateRecentScores function
+
+##5
+1. datetime module
+2. DisplayRecentScore, UpdateRecentScore,ResetRecentScore and PlayGame?
+3. To display a datetime object you must convert it to a string using strftime().
 	
 >>>>>>> 42c10a1308ca8fe2df38bb886e1c4235f9a7758c
