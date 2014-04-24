@@ -1,3 +1,4 @@
+#Task Sheet 1
 #Task 3
 
 <<<<<<< HEAD
@@ -34,5 +35,12 @@
 1. datetime module
 2. DisplayRecentScore, UpdateRecentScore,ResetRecentScore and PlayGame?
 3. To display a datetime object you must convert it to a string using strftime().
+
+
+
+#Task Sheet 2
+1.
+2. The DisplayMenu() function
+3. The GetRank(RankNo) function
 	
 >>>>>>> 42c10a1308ca8fe2df38bb886e1c4235f9a7758c
