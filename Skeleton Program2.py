@@ -22,10 +22,11 @@ class TRecentScore():
 Deck = [None]
 RecentScores = [None]
 Choice = ''
+AceRank = False
 
 def GetRank(RankNo):
   Rank = ''
-  if RankNo == 1:
+  if RankNo == 1 or RankNo == 14:
     Rank = 'Ace'
   elif RankNo == 2:
     Rank = 'Two'
@@ -51,6 +52,7 @@ def GetRank(RankNo):
     Rank = 'Queen'
   else:
     Rank = 'King'
+  
   return Rank
 
 def GetSuit(SuitNo):
@@ -81,6 +83,7 @@ def DisplayOptions():
   print('OPTION MENU')
   print()
   print('1. Set Ace to be High or Low')
+  print()
 
 def GetOptionsChoice():
   OptionChoice = input('Select an option from menu (or q to quit): ')
@@ -93,13 +96,13 @@ def SetOptions(OptionChoice):
     
 
 def SetAceHighOrLow():
-  HighOrLow = input('Do you want the Ace to be (h)igh or (l)ow?: ')
-  HighOrLow = HighOrLow.lower()[0]
-  if HighOrLow == 'h':
-    AceRank = 'h'
-  elif HighOrLow == 'l':
-    AceRank = 'l'
-  return AceRank
+    global AceRank
+    HighOrLow = input('Do you want the Ace to be (h)igh or (l)ow?: ')
+    HighOrLow = HighOrLow.lower()[0]
+    if HighOrLow == 'h':
+     AceRank = True
+    elif HighOrLow == 'l':
+     AceRank = False
 
 
 def GetMenuChoice():
@@ -108,6 +111,7 @@ def GetMenuChoice():
   return Choice.lower()[0]
 
 def LoadDeck(Deck):
+  global AceRank
   CurrentFile = open('deck.txt', 'r')
   Count = 1
   while True:
@@ -118,7 +122,12 @@ def LoadDeck(Deck):
     Deck[Count].Suit = int(LineFromFile)
     LineFromFile = CurrentFile.readline()
     Deck[Count].Rank = int(LineFromFile)
+    if AceRank == True and Deck[Count].Rank == 1:
+      Deck[Count].Rank = 14
     Count = Count + 1
+    
+    
+  
  
 def ShuffleDeck(Deck):
   SwapSpace = TCard()
