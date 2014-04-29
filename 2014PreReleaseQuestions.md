@@ -44,15 +44,15 @@
 3. The GetRank(RankNo) function
 
 #Additional Task 1
-1. Fixed value - Cannot be changed after set for example the length of an array 
+1. Fixed value - Cannot be changed after set for example the length of an array - NoOfSwaps 
    Stepper - Goes through a set of values in an organised way e.g. 'count'
-   Most recent holder - Only holds the most latest input. AceRAnk
-   Most wanted holder - Holds the value the user wants e.g. If the user wants the highest number, it will hold the highest number. Not a smaller number if one is encountered
-   Gatherer - 
-   Transformation - A variable that always gets a new value from a calculation of other variables  
-   Follower - 
+   Most recent holder - Only holds the most latest input. LastCard
+   Most wanted holder - Holds the value the user wants e.g. NextCard
+   Gatherer - Gathers the total of the values so far. 
+   Transformation - A variable that always gets a new value from a calculation of other variables. Higher  
+   Follower - Keeps track of a previous value from another variable. Follower
    Temporary - Holds a value for a short time only. 
 
-2. Called by reference means that the variable inside the function uses the same memory location as the variable passed as the parameter whereas called by value means that the function copies the variable to the parameter.
-   
+2. Called by reference means that the variable inside the function uses the same memory location (original) as the variable passed as the parameter whereas called by value means that the function copies the variable to the parameter.
+   Lists and records are passed by reference. The rest are passed by value.
 >>>>>>> 42c10a1308ca8fe2df38bb886e1c4235f9a7758c
