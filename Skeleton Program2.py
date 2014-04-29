@@ -192,6 +192,22 @@ def DisplayCorrectGuessMessage(Score):
   print('Your score is now ', Score, '.', sep='')
   print()
 
+def BubbleSortScore(RecentScores):
+  Count = 1
+  RecentScores = []
+  ListLength = len(RecentScores)
+  SwapMade = True
+  while SwapMade:
+    SwapMade = False
+    for Count in range(len(RecentScores)-1):
+      if RecentScores[Count].Score > RecentScores[Count + 1].Score:
+        Temp = RecentScores[Count + 1]
+        RecentScores[Count + 1] = RecentScores[Count]
+        RecentScores[Count] = Temp
+        SwapMade = True
+    
+    
+
 def ResetRecentScores(RecentScores):
   for Count in range(1, NO_OF_RECENT_SCORES + 1):
     RecentScores[Count].Name = ''
@@ -199,6 +215,7 @@ def ResetRecentScores(RecentScores):
     RecentScores[Count].Date = None
 
 def DisplayRecentScores(RecentScores):
+  BubbleSortScore(RecentScores)
   print()
   print('Recent Scores: ')
   print()
