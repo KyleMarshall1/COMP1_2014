@@ -76,6 +76,7 @@ def DisplayMenu():
   print('3. Display recent scores')
   print('4. Reset recent scores')
   print('5. Options')
+  print('6. Save high scores')
   print()
   print('Select an option from the menu (or enter q to quit): ', end='')
 
@@ -203,9 +204,14 @@ def BubbleSortScore(RecentScores):
         RecentScores[Count + 1] = Temp
         SwapMade = True
   return RecentScores
-    
-    
 
+def SaveScores(RecentScores):
+  RecentScores = []
+  with open("save_scores.txt", mode="w",encoding='utf-8')as Score_File:
+    for each in RecentScores:
+      Score_File.write(RecentScores+'\n')
+    
+  
 def ResetRecentScores(RecentScores):
   for Count in range(1, NO_OF_RECENT_SCORES + 1):
     RecentScores[Count].Name = ''
@@ -312,6 +318,8 @@ if __name__ == '__main__':
       OptionChoice = GetOptionsChoice()
       if OptionChoice == '1':
         SetAceHighOrLow()
+    elif Choice == '6':
+      SaveScores(RecentScores)
         
       
       
