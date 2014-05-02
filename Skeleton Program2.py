@@ -211,7 +211,16 @@ def SaveScores(RecentScores):
       Score_File.write((RecentScores[Count].Name)+'\n')
       Score_File.write(str(RecentScores[Count].Score)+'\n')
       Score_File.write(str(RecentScores[Count].Date)+'\n')
-    print('Your scores have succesfully saved')
+    print('Your recent scores have succesfully saved')
+
+def LoadScores():
+  with open("save_scores.txt", mode='r',encoding='utf-8')as Score_File:
+    for Count in range (1,len(RecentScores)):
+      for line in Score_File:
+        RecentScores[Count].Name = 
+        RecentScores[Count].Score =
+        RecentScore[Count].Date = 
+
       
     
   
@@ -301,6 +310,7 @@ if __name__ == '__main__':
   for Count in range(1, NO_OF_RECENT_SCORES + 1):
     RecentScores.append(TRecentScore())
   Choice = ''
+##  LoadScores()
   while Choice != 'q':
     DisplayMenu()
     Choice = GetMenuChoice()
