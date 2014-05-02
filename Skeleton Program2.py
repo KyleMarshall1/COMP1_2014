@@ -206,10 +206,13 @@ def BubbleSortScore(RecentScores):
   return RecentScores
 
 def SaveScores(RecentScores):
-  RecentScores = []
   with open("save_scores.txt", mode="w",encoding='utf-8')as Score_File:
-    for each in RecentScores:
-      Score_File.write(RecentScores+'\n')
+    for Count in range (1,len(RecentScores)):
+      Score_File.write((RecentScores[Count].Name)+'\n')
+      Score_File.write(str(RecentScores[Count].Score)+'\n')
+      Score_File.write(str(RecentScores[Count].Date)+'\n')
+    print('Your scores have succesfully saved')
+      
     
   
 def ResetRecentScores(RecentScores):
