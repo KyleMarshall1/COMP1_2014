@@ -85,6 +85,7 @@ def DisplayOptions():
   print('OPTION MENU')
   print()
   print('1. Set Ace to be High or Low')
+  print('2. Card of same score ends score') 
   print()
 
 def GetOptionsChoice():
@@ -95,6 +96,8 @@ def GetOptionsChoice():
 def SetOptions(OptionChoice):
   if OptionChoice == '1':
     SetAceHighOrLow()
+  elif OptionChoice == '2':
+    SetSameScore()
     
 
 def SetAceHighOrLow():
@@ -217,15 +220,16 @@ def SaveScores(RecentScores):
 def LoadScores():
   RecentScores = [""]
   with open("save_scores.txt", mode='r',encoding='utf-8')as Score_File:
-    for Count in range (1,len(RecentScores)):
-      for line in Score_File:
-        ScoreRecord = TRecentScore()
-        ScoreRecord.Name = Score_File.readlines().rstrip('\n')
-        ScoreRecord.Score = Score_File.readlies().rstrip('\n')
-        ScoreRecord.Date = Score_File.readlines().rstrip('\n')
-        RecentScores.append(ScoreRecord)
-    print('Your recent scores have been loaded')
-    return RecentScores
+    Scores = Score_File.read().splitlines()
+    for Score in Score_File:
+      ScoreRecord = TRecentScore()
+      ScoreRecord.Name = Score_File.readlines().rstrip('\n')
+      ScoreRecord.Score = Score_File.readlies().rstrip('\n')
+      ScoreRecord.Date = Score_File.readlines().rstrip('\n')
+      ScoreRecord = int(Score[2])
+      RecentScores.append(ScoreRecord)
+  print('Your recent scores have been loaded')
+  return RecentScores
 
       
     
